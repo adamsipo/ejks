@@ -2,7 +2,7 @@ data "google_project" "project" {
 }
 
 resource "google_project_iam_member" "run_admin" {
-  project = var.project
+  project = var.config["project"]
   role    = "roles/run.admin"
   member  = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
 }
